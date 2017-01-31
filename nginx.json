@@ -1,0 +1,36 @@
+{
+	"listen": 82,
+	"server_name": [
+		"example.com",
+		"www.example.com"
+	],
+	"statics": [
+		{
+			"location": "/",
+			"root": "/hanbit/webstormpjt/sh-practice-yapplace/dist"
+		}
+	],
+	"proxys": [
+		{
+			"location": "/api/",
+			"backends_name": "backend",
+			"backends": [
+				{
+					"address": "127.0.0.1",
+					"port": 8282
+				}
+			]
+		}
+	],
+	"globals": {
+		"trust_proxy": true
+	},
+	"logs": {
+		"access": {
+			"path": "logs/acc.pkjs.log"
+		},
+		"error": {
+			"path": "logs/err.pkjs.log"
+		}
+	}
+}

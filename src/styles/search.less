@@ -1,0 +1,60 @@
+@import 'lib/include.all.less';
+@import 'common.css';
+
+@main-color: #EC522E;
+@sp-imgs : {
+	background-image: url(../img/sp_yap.png);
+	background-repeat: no-repeat;
+};
+
+
+
+.top-menu-bar.local-keyword  {
+	display: inline-block;
+	color: #fff;
+	font-size: 18px;
+	cursor: text;
+}
+
+.top-menu-bar>.total-amount {
+	display: inline-block;
+	color: #ffffff;
+	border-left: solid 1px #444444;
+	font-size: 18px;
+	line-height: 18px;
+	padding: 0px 15px;
+	margin-left: 15px;
+}
+
+.total-amount>span {
+	font-size: 18px;
+	color: @main-color;
+}
+
+.top-menu-bar.search-map-btn {
+	position: absolute;
+	top: 14px;
+	right: 78px;
+	margin-right: 17px;
+	width: 85px;
+	height: 42px;
+	background-color: #EC522E;
+	border-radius: 2px;
+	font-size: 16px;
+	color: #fff;
+	line-height: 42px;
+	text-align: center;
+	letter-spacing: -2px;
+	cursor: pointer;
+}
+
+.search-share-btn {
+	position: absolute;
+	top: 25px;
+	right: 55px;
+	width: 22px;
+	height: 20px;
+	@sp-imgs();
+	background-position: -279px -312px;
+	cursor: pointer;
+}

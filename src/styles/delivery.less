@@ -1,0 +1,285 @@
+@import 'lib/include.all.less';
+@import 'common.css';
+
+@main-color: #EC522E;
+@sp-imgs : {
+	background-image: url(../img/sp_yap.png);
+	background-repeat: no-repeat;
+};
+
+
+/*=============top-img-bar============*/
+
+#delivery-contents>.top-img-bar {
+	background-image: url(../img/dlivery-top-bar.jpg);
+}
+
+.top-img-bar-darker {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+}
+
+.top-img-bar-text {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.top-img-bar-darker:after {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	content: '';
+}
+
+.top-img-bar-title {
+	color: #ffffff;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 32px;
+}
+
+.delivery-manual-text {
+	color: #DDDDDD;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: underline;
+	margin-top: 32px;
+	cursor: pointer;
+}
+
+
+/*=========delivery-filter-area=========*/
+
+.delivery-category {
+	width: 100%;
+	padding: 7px;
+	border: 1px solid #cccdce;
+}
+
+.delivery-category>ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+.delivery-category>ul>li {
+	position: relative;
+	display: inline-block;
+	font-size: 12px;
+	color: #000000;
+	padding: 0px 17px;
+	font-weight: bold;
+	list-style: none;
+	cursor: pointer;
+}
+
+.delivery-filter {
+	margin: 25px 0px;
+	text-align: right;
+}
+
+.delivery-filter>ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+.delivery-filter>ul>li {
+	display: inline-block;
+	vertical-align: top;
+	color: #747474;
+	font-size: 12px;
+	line-height: 11px;
+	padding: 0 10px;
+	list-style: none;
+	border-right: solid 1px #000000;
+	font-family: '돋움',dotum;
+	cursor: pointer;
+}
+
+.delivery-filter>ul>li:last-child {
+	border: none;
+}
+
+.delivery-filter>ul>li.active {
+	color: @main-color;
+	font-weight: bold;
+}
+
+.delivery-list-default {
+	text-align: center;
+}
+
+.delivery-list-default-text {
+	display: inline-block;
+	font-size: 14px;
+	line-height: 20px;
+	padding: 112px 0;
+	text-align: center;
+}
+
+
+/*==================delivery manual layer==================*/
+
+.delivery-manual-layer {
+	display: none;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.85);
+	z-index: 30;
+}
+
+.delivery-manual-layer-box {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 200;
+	width: 836px;
+	height: 344px;
+	margin: -220px 0 0 -418px;
+	background: #fff;
+}
+
+.title-cover {
+	position: relative;
+	float: left;
+	width: 418px;
+	height: 344px;
+	padding-top: 55px;
+	background-image: url("../img/ly_delivery_cover.jpg");
+}
+
+.delivery-layer-img {
+	position: absolute;
+	left: 50%;
+	width: 78px;
+	height: 78px;
+	margin-left: -39px;
+	@sp-imgs();
+	background-position: 0 -491px;
+	content: '';
+}
+
+.delivery-layer-title {
+	position: relative;
+	padding-top: 88px;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: -1.5px;
+	text-align: center;
+}
+
+.delivery-layer-title>strong {
+	color: #fe6333;
+	font-size: 30px;
+	letter-spacing: -1.5px;
+	margin-top: 7px;
+}
+
+.delivery-layer-description {
+	position: relative;
+	font-size: 14px;
+	color: #d2d2d2;
+	line-height: 20px;
+	letter-spacing: -1.5px;
+	margin-top: 13px;
+	padding-top: 16px;
+	text-align: center;
+}
+
+.delivery-layer-description:after {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -14px;
+	width: 24px;
+	border: solid 1px #D2D2D2;
+	content: '';
+}
+
+.info-contents {
+	padding-top: 40px;
+}
+
+.info-contents-title {
+	font-size: 16px;
+	color: #212121;
+}
+
+.order-method {
+	padding: 0px;
+	margin: 0px;
+}
+
+.order-method>li {
+	position: relative;
+	display: inline-block;
+	width: 133px;
+	margin-top: 25px;
+	padding-top: 82px;
+	font-size: 12px;
+	color: #323232;
+}
+
+.order-method>li:before {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	@sp-imgs();
+	width: 73px;
+	height: 73px;
+	margin-left: -36.5px;
+	content: '';
+}
+
+.step1:before {
+ background-position: -80px -495px;
+}
+
+.step2:before {
+	background-position: -156px -495px;
+}
+
+.step3:before {
+	background-position: -232px -495px;
+}
+
+.step4:before {
+	background-position: -188px -571px;
+}
+
+.step5:before {
+	background-position: -263px -571px;
+}
+
+.order-method>li:after {
+	position: absolute;
+	top: 32.5px;
+	right: -5px;
+	width: 8px;
+	height: 13px;
+	@sp-imgs();
+	background-position: -213px -78px;
+	content: '';
+}
+
+.step3:after,
+.step5:after {
+	display: none;
+}
+
+.big-close-btn {
+	position: absolute;
+	top: 0px;
+	right: -49px;
+	width: 31px;
+	height: 31px;
+	@sp-imgs();
+	background-position: 0 -134px;
+	cursor: pointer;
+}

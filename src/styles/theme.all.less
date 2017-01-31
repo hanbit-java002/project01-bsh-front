@@ -1,0 +1,61 @@
+@import 'lib/include.all.less';
+@import 'common.css';
+@import 'theme.newest.less';
+
+@main-color: #EC522E;
+
+.theme-tag-list-img {
+	padding-top: 84%;
+	background-size: 100% 100%;
+
+}
+
+.theme-tag-text-area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.theme-tag-text-area:after {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	content: '';
+}
+
+.theme-tag-keyword {
+	display: inline-block;
+	color: #ffffff;
+	font-size: 20px;
+	border-radius: 30px;
+	text-align: center;
+	padding: 15px 20px;
+	background-color: #000000;
+	margin: 0 5px;
+}
+
+.theme-tag-keyword.active {
+	background-color: @main-color;
+}
+
+.theme-tag-list-more-dim {
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	bottom: 0px;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0, rgba(0, 0, 0, 0) 100%);
+}
+
+.theme-tag-list-more {
+	position: absolute;
+	bottom: 19px;
+	right: 20px;
+	font-size: 18px;
+	color: #fff;
+}
+
+.theme-tag-list-more>span {
+	color: @main-color
+}
