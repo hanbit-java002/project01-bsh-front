@@ -58,3 +58,66 @@
 	background-position: -279px -312px;
 	cursor: pointer;
 }
+
+.search-filter {
+	position: absolute;
+	margin-right: 55px;
+	float: right;
+	z-index: 100;
+}
+
+.search-filter>ul {
+	padding: 0;
+	margin: 30px 0px;
+}
+
+.search-filter>ul>li {
+	display: inline-block;
+	list-style: none;
+	padding: 0 15px 0 13px;
+	vertical-align: middle;
+	border-right: solid 1px #000;
+	color: #000;
+	font-size: 16px;
+	letter-spacing: -.5px;
+	line-height: 14px;
+	cursor: pointer;
+}
+
+.search-filter>ul>li:last-child {
+	border-right: none;
+}
+
+.click-filter-text {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.click-filter-img {
+	display: inline-block;
+	@sp-imgs();
+	width: 18px;
+	height: 14px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+.popular>.click-filter-img {
+	background-position: -258px -256px;
+}
+
+.popular>.click-filter-img.active {
+	background-position: -258px -272px;
+}
+
+.special>.click-filter-img {
+	background-position: -278px -256px;
+}
+
+.special>.click-filter-img.active {
+	background-position: -278px -272px;
+}
+
+.filter>.click-filter-img {
+	background-position: -238px -288px;
+}
