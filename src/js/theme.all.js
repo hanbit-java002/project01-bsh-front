@@ -14,7 +14,7 @@ require([
 	}
 	function goToThemeTag() {
 		$(".theme-list>li").on("click", function(event) {
-			location.href = "theme.tag.html";
+			location.href = global.root + "/theme.tag.html";
 		});
 	}
 
