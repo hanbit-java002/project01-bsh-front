@@ -25,7 +25,7 @@ define([
 
 	/* ----------------main logo----------------*/
 	$("#main-bar-logo, #header-bar-logo").on("click", function() {
-		location.href = global.root;
+		location.href = "/";
 	});
 
 
@@ -109,10 +109,16 @@ define([
 
 
 	/* ----------------login layers----------------*/
+	function resetInputBox() {
+		$(".email-addr-inputbox").val("");
+		$(".password-inputbox").val("");
+		$(".again-password-inputbox").val("");
+	}
+
 	function signUp() {
-		var userId = $(".email-addr-inputbox").val();
-		var userPw = $(".password-inputbox").val();
-		var userPwCfm = $(".again-password-inputbox").val();
+		var userId = $(".email-signup-email-addr-box>.email-addr-inputbox").val();
+		var userPw = $(".email-signup-password-box>.password-inputbox").val();
+		var userPwCfm = $(".email-signup-again-password-box>.again-password-inputbox").val();
 
 		if (userId === undefined || userId === "") {
 			alert("아이디를 입력하세요.");
@@ -140,7 +146,8 @@ define([
 			success: function(data) {
 				if(data.result === "ok") {
 					alert(userId + "님 환영합니다.");
-					$("#main-login-layer").hide();
+					$("#email-signup-layer").hide();
+					resetInputBox();
 				}
 				else {
 					alert("정상적으로 가입되지 않았습니다.");
@@ -157,7 +164,8 @@ define([
 			url: global.root + "/api2/member/signedin",
 			success: function(data) {
 				if (data.result === "yes") {
-					$(".main-login-layer").hide();
+					$(".mail-login-layer").hide();
+					resetInputBox();
 					// 나중에 로그인 완료 후, 노출되는 기능은 여기에 추가
 				}
 				else {
@@ -173,8 +181,8 @@ define([
 	}
 
 	function signIn() {
-		var userId = $(".email-addr-inputbox").val();
-		var userPw = $(".mail-login-email-password-box").val();
+		var userId = $(".mail-login-email-addr-box>.email-addr-inputbox").val();
+		var userPw = $(".mail-login-email-password-box>.mail-login-email-password-box").val();
 
 		if (userId === undefined || userId === "") {
 			alert("아이디를 입력하세요.");
@@ -197,11 +205,12 @@ define([
 			success: function(data) {
 				if(data.result === "ok") {
 					alert(userId + "님 환영합니다.");
-					$(".main-login-layer").hide();
+					$(".mail-login-layer").hide();
+					resetInputBox();
 					// 나중에 로그인 완료 후, 노출되는 기능은 여기에 추가
 				}
 				else {
-					alert("정상적으로 로그인되지 않았습니다.");
+					alert("아이디와 비밀번호를 확인해주세요.");
 				}
 			},
 			error: function(jqXHR) {
@@ -209,6 +218,14 @@ define([
 			},
 		});
 	}
+
+	$(".mail-login-button").on("click", function() {
+		signIn();
+	});
+
+	$(".email-signup-complete-button").on("click", function() {
+		signUp();
+	});
 
 	function showLoginLayer() {
 		$("#main-bar-login-button, #header-bar-login-button").on("click", function() {
@@ -369,7 +386,7 @@ define([
 	hideSnsShareLayer();
 	shareLink();
 	activeSearchBoxLayerList();
-	signUp();
 	checkSignedIn();
-	signIn();
+
+	$("input[type=password]").maskPassword();
 });

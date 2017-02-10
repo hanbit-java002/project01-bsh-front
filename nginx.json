@@ -1,23 +1,22 @@
 {
 	"listen": 82,
 	"server_name": [
-		"example.com",
-		"www.example.com"
+		"localhost"
 	],
 	"statics": [
 		{
 			"location": "/",
-			"root": "/hanbit/webstormpjt/sh-practice-yapplace/dist"
+			"root": "/hanbit/webstormpjt/project01-bsh-front/dist"
 		}
 	],
 	"proxys": [
 		{
-			"location": "/api/",
+			"location": "/api2/",
 			"backends_name": "backend",
 			"backends": [
 				{
 					"address": "127.0.0.1",
-					"port": 8282
+					"port": 8680
 				}
 			]
 		}
