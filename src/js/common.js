@@ -155,6 +155,7 @@ define([
 			},
 			error: function(jqXHR) {
 				alert(jqXHR.responseJSON.message);
+				console.log("check error ajax sign up");
 			},
 		});
 	}
@@ -182,7 +183,7 @@ define([
 
 	function signIn() {
 		var userId = $(".mail-login-email-addr-box>.email-addr-inputbox").val();
-		var userPw = $(".mail-login-email-password-box>.mail-login-email-password-box").val();
+		var userPw = $(".mail-login-email-password-box>.password-inputbox").val();
 
 		if (userId === undefined || userId === "") {
 			alert("아이디를 입력하세요.");
@@ -387,6 +388,4 @@ define([
 	shareLink();
 	activeSearchBoxLayerList();
 	checkSignedIn();
-
-	$("input[type=password]").maskPassword();
 });
