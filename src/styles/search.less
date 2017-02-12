@@ -1,5 +1,6 @@
 @import 'lib/include.all.less';
 @import 'common.css';
+@import 'main.less';
 
 @main-color: #EC522E;
 @sp-imgs : {
@@ -59,36 +60,51 @@
 	cursor: pointer;
 }
 
+
+// ============필 터============ //
+
+.search-filter-container {
+	position: relative;
+}
+
 .search-filter {
-	margin-right: 55px;
-	float: right;
+	position: absolute;
+	right: 155px;
+	padding: 20px;
+	margin: 0px;
+	background-color: #ffffff;
 }
 
-.search-filter>ul {
-	padding: 0;
-	margin: 30px 0px;
-}
-
-.search-filter>ul>li {
+.search-filter>li {
 	display: inline-block;
-	list-style: none;
-	padding: 0 15px 0 13px;
 	vertical-align: middle;
-	border-right: solid 1px #000;
+	padding: 0 15px 0 15px;
+	border-right: solid 1px #999999;
 	color: #000;
 	font-size: 16px;
 	letter-spacing: -.5px;
 	line-height: 14px;
 	cursor: pointer;
+	list-style: none;
+
 }
 
-.search-filter>ul>li:last-child {
+.search-filter>li:first-child {
+	padding-left: 0;
+}
+
+.search-filter>li:last-child {
+	padding-right: 0;
 	border-right: none;
 }
 
 .click-filter-text {
 	display: inline-block;
 	vertical-align: middle;
+}
+
+.click-filter-text.active {
+	color: @main-color;
 }
 
 .click-filter-img {

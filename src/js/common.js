@@ -146,7 +146,7 @@ define([
 			success: function(data) {
 				if(data.result === "ok") {
 					alert(userId + "님 환영합니다.");
-					$("#email-signup-layer").hide();
+					$("#main-login-layer").hide();
 					resetInputBox();
 				}
 				else {
@@ -155,7 +155,6 @@ define([
 			},
 			error: function(jqXHR) {
 				alert(jqXHR.responseJSON.message);
-				console.log("check error ajax sign up");
 			},
 		});
 	}
@@ -165,7 +164,7 @@ define([
 			url: global.root + "/api2/member/signedin",
 			success: function(data) {
 				if (data.result === "yes") {
-					$(".mail-login-layer").hide();
+					$("#main-login-layer").hide();
 					resetInputBox();
 					// 나중에 로그인 완료 후, 노출되는 기능은 여기에 추가
 				}
