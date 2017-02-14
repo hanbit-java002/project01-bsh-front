@@ -5,9 +5,10 @@ require([
 		$(".search-filter").css({
 			"position": "fixed",
 			"top": "15px",
-			"left": "155px",
+			"left": "55px",
 			"right": "auto",
 			"padding": "10px",
+			"z-index": "10",
 			"border": "solid 1px #999999",
 		});
 	}
@@ -16,28 +17,13 @@ require([
 			"position": "absolute",
 			"top": "auto",
 			"left": "auto",
-			"right": "155px",
+			"right": "55px",
 			"padding": "20px",
 			"margin": "0px",
 			"border": "none",
 			"background-color": "#ffffff",
 		});
 	}
-	/* function clickSearchFilterCss(cssSelector) {
-		if(cssSelector === ".click-filter.popular") {
-			$(".popular>.click-filter-img").css("background-position", "-258px -272px");
-			$(cssSelector + ">.click-filter-text").css("color", "#EC522E");
-		}
-		else if(cssSelector === ".click-filter.special") {
-			$(".special>.click-filter-img").css("background-position", "-278px -272px");
-			$(cssSelector + ">.click-filter-text").css("color", "#EC522E");
-		}
-	} */
-
-	/* $(".click-filter.popular, .click-filter.special").on("click", function() {
-		var select = $(this).children("div");
-		$(select).toggleClass("active");
-	}); */
 
 	$(".click-filter").on("click", function() {
 		var select = $(this).children("div");
@@ -51,10 +37,9 @@ require([
 	});
 
 	$(document).ready(function() {
-		var prePosition = 0;
 		$(window).on("scroll", function(event) {
 			var initPosition = $(this).scrollTop();
-			if(initPosition > prePosition) {
+			if(initPosition > 155) {
 				scrollSearchFilterCss();
 			}
 			else {
@@ -62,11 +47,4 @@ require([
 			}
 		});
 	});
-
-	/* $(".click-filter.popular").on("click", function() {
-		clickSearchFilterCss(".click-filter.popular");
-	});
-	$(".click-filter.special").on("click", function() {
-		clickSearchFilterCss(".click-filter.special");
-	}); */
 });

@@ -42,7 +42,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="search-filter-container">
+	<div id="search-filter" class="body">
 		<ul class="search-filter">
 			<li class="click-filter popular">
 				<div class="click-filter-img"></div>
@@ -64,16 +64,23 @@
 			</li>
 		</ul>
 	</div>
-	<div class="">
-		<div class="section05-contents editor-recommend">
-			<div class="section05-contents-title">
-				에디터 추천 맛집 리스트(12개)
+	<div id="theme" class="body">
+		<div class="section">
+			<div class="section-title">
+				테마
+				<span>신촌의 추천 테마</span>
 			</div>
-			{{> theme.list}}
+			{{> theme.recommend.list}}
 		</div>
 	</div>
-
-
-
+	<div id="ranking" class="body">
+		<div class="section">
+			<div class="section-title">
+				소셜랭킹
+				<span>강남역의 맛집 랭킹</span>
+			</div>
+			{{> ranking.list}}
+		</div>
+	</div>
 
 {{> footer jsName='search'}}
