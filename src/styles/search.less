@@ -7,6 +7,9 @@
 };
 
 
+#search-contents {
+	position: relative;
+}
 
 .top-menu-bar.local-keyword  {
 	display: inline-block;
@@ -60,6 +63,11 @@
 
 
 // ============필 터============ //
+
+#search-filter.body {
+	margin-bottom: 0px;
+	z-index: 10;
+}
 
 .search-filter-container {
 	position: relative;
@@ -136,6 +144,11 @@
 
 // ============Section============ //
 
+#theme>.section {
+	margin-top: 0px;
+	padding-top: 70px;
+}
+
 .section-title {
 	color: #000000;
 	font-size: 22px;
@@ -148,4 +161,346 @@
 	font-size: 18px;
 	margin-left: 6px;
 	font-weight: normal;
+}
+
+
+// ============Filter Layer============ //
+
+.filter-layer {
+	position: absolute;
+	z-index: 20;
+	float:left;
+	overflow: hidden;
+	white-space: nowrap;
+	top: 0;
+	right: 0;
+	width: 0px;
+	height: 100%;
+	border-left: 1px solid #c1c1c1;
+	border-bottom: 1px solid #c1c1c1;
+	background: #efefef;
+	font-family: '돋움',dotum;
+}
+
+
+@filter-layer-padding: 15px;
+
+.filter-top-bar {
+	position: relative;
+	padding: @filter-layer-padding;
+	text-align: center;
+	font-size: 15px;
+	background-color: #FFFFFF;
+}
+
+.filter-top-bar>span {
+	color: @main-color;
+	cursor: pointer;
+}
+
+.reset-btn {
+	float: left;
+}
+
+.submit-btn {
+	float: right;
+}
+
+.filter-layer-body {
+	padding: @filter-layer-padding;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.filter-section {
+	margin-bottom: @filter-layer-padding;
+}
+
+.filter-description {
+	margin-bottom: @filter-layer-padding;
+	font-size: 14px;
+	color: #666;
+}
+
+.filter-section>ul {
+	margin-bottom: @filter-layer-padding * 2;
+}
+
+.filter-section>ul>li {
+	list-style: none;
+}
+
+.filter-ico,
+.checkbox-circle {
+	@sp-imgs();
+	cursor: pointer;
+}
+
+.purpose>ul {
+	padding: 0px;
+}
+
+.purpose>ul>li {
+	display: inline-block;
+	padding: 0 28px;
+	vertical-align: middle;
+}
+
+.purpose>ul>li>.filter-ico {
+	width: 58px;
+	height: 58px;
+}
+
+.purpose-meal>.filter-ico {
+	background-position: -402px 0;
+}
+
+.purpose-meal>.filter-ico.active {
+	background-position: -462px 0;
+}
+
+.purpose-dessert>.filter-ico {
+	background-position: -402px -60px;
+}
+
+.purpose-dessert>.filter-ico.active {
+	background-position: -462px -60px;
+}
+
+.purpose-drink>.filter-ico {
+	background-position: -402px -120px;
+}
+
+.purpose-drink>.filter-ico.active {
+	background-position: -462px -120px;
+}
+
+.filter-text {
+	margin-top: 7px;
+	font-size: 12px;
+	color: #323232;
+	text-align: center;
+}
+
+.filter-text.active {
+	color: @main-color;
+}
+
+
+// budget 자리//
+
+
+.white-wrap {
+	background-color: #FFFFFF;
+	padding: 0 10px;
+	white-space: normal;
+}
+
+@filter-layer-border-bottom: solid 1px #D7D7D7;
+
+.menu>ul>li {
+	display: inline-block;
+	padding: 20px 0px;
+	width: 20%;
+	border-bottom: @filter-layer-border-bottom;
+}
+
+.menu>ul>li:nth-child(11),
+.menu>ul>li:nth-child(12),
+.menu>ul>li:nth-child(13),
+.menu>ul>li:nth-child(14) {
+	border-bottom: none;
+}
+
+.menu>ul>li>.filter-ico {
+	width: 30px;
+	height: 25px;
+	margin: 0 auto;
+}
+
+.rice>.filter-ico {
+	background-position: -402px -180px;
+}
+
+.rice>.filter-ico.active {
+	background-position: -402px -315px;
+}
+
+.noodle>.filter-ico {
+	background-position: -434px -180px
+}
+
+.noodle>.filter-ico.active {
+	background-position: -434px -315px;
+}
+
+.meat>.filter-ico {
+	background-position: -466px -180px
+}
+
+.meat>.filter-ico.active {
+	background-position: -466px -315px;
+}
+
+.chicken>.filter-ico {
+	background-position: -402px -207px;
+}
+
+.chicken>.filter-ico.active {
+	background-position: -402px -342px;
+}
+
+.seafood>.filter-ico {
+	background-position: -434px -207px;
+}
+
+.seafood>.filter-ico.active {
+	background-position: -434px -342px;
+}
+
+.japanese>.filter-ico {
+	background-position: -466px -207px;
+}
+
+.japanese>.filter-ico.active {
+	background-position: -466px -342px;
+}
+
+.chinese>.filter-ico {
+	background-position: -402px -234px;
+}
+
+.chinese>.filter-ico.active {
+	background-position: -402px -369px;
+}
+
+.western>.filter-ico {
+	background-position: -434px -234px;
+}
+
+.western>.filter-ico.active {
+	background-position: -434px -369px;
+}
+
+.asia>.filter-ico {
+	background-position: -466px -234px;
+}
+
+.asia>.filter-ico.active {
+	background-position: -466px -369px;
+}
+
+.snack>.filter-ico {
+	background-position: -402px -261px;
+}
+
+.snack>.filter-ico.active {
+	background-position: -402px -396px;
+}
+
+.cafe>.filter-ico {
+	background-position: -434px -261px;
+}
+
+.cafe>.filter-ico.active {
+	background-position: -434px -396px;
+}
+
+.bakery>.filter-ico {
+	background-position: -466px -261px;
+}
+
+.bakery>.filter-ico.active {
+	background-position: -466px -396px;
+}
+
+.pubbar>.filter-ico {
+	background-position: -402px -288px;
+}
+
+.pubbar>.filter-ico.active {
+	background-position: -402px -423px;
+}
+
+.pub>.filter-ico {
+	background-position: -434px -288px;
+}
+
+.pub>.filter-ico.active {
+	background-position: -434px -423px;
+}
+
+.with-who>ul>li {
+	padding: 10px 0px;
+	border-bottom: @filter-layer-border-bottom;
+}
+
+.with-who>ul>li:last-child {
+	border-bottom: none;
+}
+
+.with-who>ul>li>div {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.checkbox-circle {
+	width: 18px;
+	height: 18px;
+	margin-right: 7px;
+	vertical-align: middle;
+	background-position: -498px -180px;
+}
+
+.checkbox-circle.active {
+	background-position: -498px -200px;
+}
+
+.who-label {
+	width: 53px;
+	font-size: 14px;
+	color: #323232;
+}
+
+.who-tag {
+	overflow: hidden;
+	font-size: 11px;
+	color: #999;
+	letter-spacing: -1px;
+}
+
+.special-service {
+	margin-bottom: 70px;
+}
+
+.special-service>ul>li {
+	display: inline-block;
+	padding: 10px 0px;
+	vertical-align: middle;
+	text-align: center;
+	width: 50%;
+	line-height: 30px;
+	border-bottom: @filter-layer-border-bottom;
+	cursor: pointer;
+}
+
+.special-service>ul>li:nth-child(3),
+.special-service>ul>li:nth-child(4) {
+	border-bottom: none;
+}
+
+.special-service>ul>li>div {
+	font-size: 14px;
+	color: #323232;
+	text-align: center;
+	line-height: 30px;
+}
+
+.service-parking>div,
+.service-child>div {
+	border-right: @filter-layer-border-bottom;
+}
+
+.special-service>ul>li>div.active {
+	color: @main-color;
 }
