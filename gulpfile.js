@@ -95,6 +95,8 @@ gulp.task('copy', [
     'copy:bootstrap',
     'copy:font-awesome',
     'copy:clipboard',
+	'copy:jquery-asRange',
+	'copy:bootstrap-slider',
     'copy:license',
     'copy:img',
     'copy:misc'
@@ -147,9 +149,27 @@ gulp.task('copy:bootstrap', function () {
     );
 });
 
+gulp.task('copy:bootstrap-slider', function () {
+	return all(
+		gulp.src(['node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/bootstrap-slider/css')),
+		gulp.src(['node_modules/bootstrap-slider/dist/bootstrap-slider.min.js'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/bootstrap-slider/js'))
+	);
+});
+
+gulp.task('copy:jquery-asRange', function () {
+	return all(
+		gulp.src(['node_modules/jquery-asRange/dist/css/asRange.min.css'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/jquery-asRange/css')),
+		gulp.src(['node_modules/jquery-asRange/dist/jquery-asRange.min.js'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/jquery-asRange/js'))
+	);
+});
+
 gulp.task('copy:clipboard', function () {
-    return gulp.src('node_modules/clipboard/dist/clipboard.min.js')
-        .pipe(gulp.dest(dirs.dist + '/plugins/clipboard'));
+	return gulp.src('node_modules/clipboard/dist/clipboard.min.js')
+		.pipe(gulp.dest(dirs.dist + '/plugins/clipboard'));
 });
 
 gulp.task('copy:license', function () {

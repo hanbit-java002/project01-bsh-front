@@ -41,7 +41,17 @@
 				예산은 얼마인가요? (2인 기준)
 			</div>
 			<div class="budget-slider-wrap">
-				<div class="budget-slider"></div>
+				<input id="budget-slider" type="text"
+					   data-provide="slider"
+					   data-slider-tooltip="hide"
+					   data-slider-range="true"
+					   data-slider-min="0"
+					   data-slider-max="4"
+					   data-slider-ticks="[0, 1, 2, 3, 4]"
+					   data-slider-ticks_positions="[0, 25, 50, 75, 100]"
+					   data-slider-step="1"
+					   data-slider-value="[0,4]"
+					   data-slider-handle="round">
 				<div class="price">
 					<span class="price1">1만원</span>
 					<span class="price2">2만원</span>
@@ -199,22 +209,22 @@
 				특별한 서비스를 원하시나요?
 			</div>
 			<ul class="white-wrap">
-				<li class="service-parking">
+				<li class="service-select parking">
 					<div>
 						주차가능
 					</div>
 				</li>
-				<li class="service-outdoor">
+				<li class="service-select outdoor">
 					<div>
 						야외좌석
 					</div>
 				</li>
-				<li class="service-child">
+				<li class="service-select child">
 					<div>
 						유아시설
 					</div>
 				</li>
-				<li class="service-lunch">
+				<li class="service-select lunch">
 					<div>
 						런치메뉴
 					</div>

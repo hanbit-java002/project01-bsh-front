@@ -1,5 +1,6 @@
 require([
 	"common",
+	"bootstrap-slider",
 ], function() {
 	function scrollSearchFilterCss() {
 		$(".search-filter").css({
@@ -95,7 +96,7 @@ require([
 		});
 	}
 
-	// 팝업레이어 slideLeft //
+	// filterLayer slideLeft //
 	function showFilterlayer() {
 		var boxWidth = "380px";
 		$(".filter-layer").animate({
@@ -103,4 +104,40 @@ require([
 		}, "1500");
 		hideFilterlayer();
 	}
+
+	$(".budget-slider").slider({
+		range: "true",
+	});
+
+	// filterLayer toggleActive //
+	$(".filter-ico").on("click", function() {
+		$(this).toggleClass("active");
+		var select = $(this).parent("li");
+		select.find(".filter-text").toggleClass("active");
+	});
+
+	$(".checkbox-circle").on("click", function() {
+		$(this).toggleClass("active");
+		var select = $(this).parent("li");
+		select.find(".who-label").toggleClass("active");
+	});
+
+	$(".service-select").on("click", function() {
+		$(this).find("div").toggleClass("active");
+	});
+
+	function filterLayerSliderReset() {
+		$(".slider-handle.max-slider-handle.round").css("left", "100%");
+		$(".slider-handle.min-slider-handle.round").css("left", "0%");
+		$(".slider-selection.tick-slider-selection").css({
+			"left": "0%",
+			"width": "100%",
+		});
+	}
+
+	// filterLayer reset //
+	$(".reset-btn").on("click", function() {
+		$(".filter-layer").find(".active").removeClass("active");
+		filterLayerSliderReset();
+	});
 });

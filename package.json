@@ -54,6 +54,8 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "clipboard": "^1.5.16"
+    "clipboard": "^1.5.16",
+    "jquery-asRange": "^0.3.3",
+    "react-bootstrap-slider": "^1.1.4"
   }
 }

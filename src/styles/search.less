@@ -288,7 +288,58 @@
 
 
 // budget 자리//
+.slider.slider-horizontal .slider-tick,
+.slider.slider-horizontal .slider-handle {
+	margin-left: 0px;
+}
 
+.slider.slider-horizontal {
+	width: 90%;
+	margin-left: 10px;
+}
+
+.slider.slider-horizontal .slider-track {
+	width: 100%;
+	height: 4px;
+	border-radius: 4px;
+	background: #FAFAFA;
+}
+
+.slider-selection.tick-slider-selection {
+	border-radius: 4px;
+	background: @main-color;
+}
+
+.slider-handle.round {
+	top: -3px;
+	margin-left: -5px;
+	background: @main-color;
+}
+
+.slider-tick.round.in-selection {
+	display: none;
+}
+
+.slider-tick.round {
+	display: none;
+}
+
+.price {
+	margin-left: 5px;
+}
+
+.price>span {
+	font-size: 12px;
+	padding-right: 40px;
+}
+
+.price>span:nth-child(4) {
+	padding-right: 5px;
+}
+
+.price>span:last-child {
+	padding-right: 0;
+}
 
 .white-wrap {
 	background-color: #FFFFFF;
@@ -462,6 +513,10 @@
 	color: #323232;
 }
 
+.who-label.active {
+	color: @main-color;
+}
+
 .who-tag {
 	overflow: hidden;
 	font-size: 11px;
@@ -496,11 +551,11 @@
 	line-height: 30px;
 }
 
-.service-parking>div,
-.service-child>div {
-	border-right: @filter-layer-border-bottom;
-}
-
 .special-service>ul>li>div.active {
 	color: @main-color;
+}
+
+.service-select.parking>div,
+.service-select.child>div {
+	border-right: @filter-layer-border-bottom;
 }
