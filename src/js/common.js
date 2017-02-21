@@ -159,27 +159,6 @@ define([
 		});
 	}
 
-	function checkSignedIn() {
-		$.ajax({
-			url: global.root + "/api2/member/signedin",
-			success: function(data) {
-				if (data.result === "yes") {
-					$("#main-login-layer").hide();
-					resetInputBox();
-					// 나중에 로그인 완료 후, 노출되는 기능은 여기에 추가
-				}
-				else {
-					/* 나중에 로그인 완료 후, 노출되는 기능은 여기에 추가
-					$(".main-login-layer").hide();
-					$(".hp-sign-up").show();
-					$(".hp-sign-in").show();
-					$(".hp-member-info").hide();
-					$(".hp-sign-out").hide();*/
-				}
-			},
-		});
-	}
-
 	function signIn() {
 		var userId = $(".mail-login-email-addr-box>.email-addr-inputbox").val();
 		var userPw = $(".mail-login-email-password-box>.password-inputbox").val();
@@ -386,5 +365,4 @@ define([
 	hideSnsShareLayer();
 	shareLink();
 	activeSearchBoxLayerList();
-	checkSignedIn();
 });
