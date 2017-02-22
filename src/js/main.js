@@ -21,7 +21,7 @@ require([
 		var sectionHTML;
 
 		if (sectionCode === "01") {
-			for (var i=startIndex; i<endIndex; i++) {
+			for (var i=startIndex; i<items.length; i++) {
 				var item = items[i];
 
 				sectionHTML = "<li alt=\"" + item.storeName + "\">";
@@ -67,6 +67,17 @@ require([
 			});
 		}
 	}
+
+	/* ----------------image rolling slider----------------*/
+
+
+	function imgRollingSlider() {
+		$(".section-paging-arrow.left").on("click", function() {
+
+
+		});
+	}
+
 
 	initSection("01");
 });

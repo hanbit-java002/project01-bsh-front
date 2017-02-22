@@ -340,7 +340,6 @@ define([
 		});
 	}
 
-
 	scrollUp();
 	showLoginLayer();
 	hideLoginLayer();
