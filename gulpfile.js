@@ -97,6 +97,7 @@ gulp.task('copy', [
     'copy:clipboard',
 	'copy:jquery-asRange',
 	'copy:bootstrap-slider',
+	'copy:slick-carousel',
     'copy:license',
     'copy:img',
     'copy:misc'
@@ -139,7 +140,7 @@ gulp.task('copy:normalize', function () {
 gulp.task('copy:bootstrap', function () {
     return all(
         gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css'])
-        .pipe(gulp.dest(dirs.dist + '/plugins/bootstrap/css')),
+        	.pipe(gulp.dest(dirs.dist + '/plugins/bootstrap/css')),
         gulp.src(['node_modules/bootstrap/dist/js/bootstrap.js'])
             .pipe(uglify())
             .pipe(plugins.rename('bootstrap.min.js'))
@@ -167,6 +168,19 @@ gulp.task('copy:jquery-asRange', function () {
 	);
 });
 
+gulp.task('copy:slick-carousel', function () {
+	return all(
+		gulp.src(['node_modules/slick-carousel/slick/fonts/*'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/slick-carousel/fonts')),
+		gulp.src(['node_modules/slick-carousel/slick/slick.min.js'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/slick-carousel/js')),
+		gulp.src(['node_modules/slick-carousel/slick/slick.css'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/slick-carousel/css')),
+		gulp.src(['node_modules/slick-carousel/slick/slick-theme.css'])
+			.pipe(gulp.dest(dirs.dist + '/plugins/slick-carousel/css'))
+	);
+});
+
 gulp.task('copy:clipboard', function () {
 	return gulp.src('node_modules/clipboard/dist/clipboard.min.js')
 		.pipe(gulp.dest(dirs.dist + '/plugins/clipboard'));
@@ -176,6 +190,9 @@ gulp.task('copy:license', function () {
     return gulp.src('LICENSE.txt')
         .pipe(gulp.dest(dirs.dist));
 });
+
+// ** => 모든 폴더
+// * => 모든 파일
 
 gulp.task('copy:img', function () {
     return gulp.src(dirs.src + '/img/**/*')

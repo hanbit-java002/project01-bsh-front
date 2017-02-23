@@ -9,6 +9,7 @@ require.config({
         "bootstrap"     : "plugins/bootstrap/js/bootstrap.min",
 		"bootstrap-slider": "plugins/bootstrap-slider/js/bootstrap-slider.min",
         "clipboard"     : "plugins/clipboard/clipboard.min",
+        "slick-carousel": "plugins/slick-carousel/js/slick.min",
 
         "common"        : "js/common"
     },

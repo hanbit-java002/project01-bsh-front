@@ -180,6 +180,11 @@
 	margin: 13px auto;
 }
 
+.img-slide-area {
+	overflow: hidden;
+	white-space: nowrap;
+}
+
 .section-paging-arrow {
 	position: absolute;
 	display: inline-block;
@@ -191,6 +196,7 @@
 }
 
 .section-paging-arrow.left {
+	display: none;
 	left: 0;
 	margin-right: 15px;
 }
@@ -201,12 +207,11 @@
 }
 
 .section01-body-list {
+	position: relative;
 	display: inline-block;
 	padding: 0px;
 	width: 100%;
 	list-style: none;
-	overflow-x: hidden;
-	white-space: nowrap;
 }
 
 .section01-body-list>li {
@@ -244,7 +249,7 @@
 }
 
 .main-section01-body-list-name {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .main-section01-body-list-info {
