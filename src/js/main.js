@@ -70,57 +70,35 @@ require([
 
 	function imgRollingSlider(sectionCode, items) {
 		items = sectionInfo[sectionCode].items;
-		var imgMargin = 30.6;
+		var imgMargin = 30.3;
+		var listEndIndex = items.length - 1;
 		var imgWidth = 0;
 		var listWidth = 0;
-		var movePosition = 0;
-		var startIndex = 0;
-		var endIndex = items.length - 1;
+		var	movePosition = 0;
+		var	startIndex = 0;
+		var lastIndex = startIndex + 2;
 
+		// 리사이즈 될 때, 기준선 정렬 //
 		$(window).on("resize", function() {
-			imgWidth = $(".section01-body-list>li").width();
+			imgWidth = parseFloat($(".section01-body-list>li").css("width"));
 			listWidth = imgWidth + imgMargin;
-			var movePosition = -((startIndex * listWidth) - 2);
-
-			$(".section01-body-list").css("left", movePosition);
-
-			return listWidth;
-		});
-
-		$(".section-paging-arrow.right").on("click", function() {
-			$(".section-paging-arrow.left").show();
-
-			++startIndex;
 			movePosition = -(listWidth * startIndex);
 
 			$(".section01-body-list").animate({
 				left: movePosition + "px",
-			});
-
-			if (startIndex >= endIndex - 2) {
-				$(".section-paging-arrow.right").hide();
-			}
-
-			return startIndex;
+			}, 1);
 		});
 
-		console.log("imgWidth:" + imgWidth, "listWidth:" + listWidth,
-			"movePosition:" + movePosition, "startIndex:" + startIndex,
-			"endIndex:" + endIndex);
-
-		$(".section-paging-arrow.left").on("click", function() {
-			$(".section-paging-arrow.right").show();
-
-			imgWidth = parseInt($(".section01-body-list>li").css("width"));
+		// 우측 버튼 //
+		$(".section-paging-arrow.right").on("click", function() {
+			$(".section-paging-arrow.left").show();
+			++startIndex;
+			imgWidth = parseFloat($(".section01-body-list>li").css("width"));
 			listWidth = imgWidth + imgMargin;
-			movePosition += listWidth;
-			--startIndex;
+			movePosition = -(listWidth * startIndex);
 
-			if (movePosition > - listWidth) {
-				$(".section-paging-arrow.left").hide();
-				$(".section01-body-list").animate({
-					left: movePosition + "px",
-				});
+			if (lastIndex >= listEndIndex) {
+				$(".section-paging-arrow.right").hide();
 				--startIndex;
 				return startIndex;
 			}
@@ -128,11 +106,31 @@ require([
 			$(".section01-body-list").animate({
 				left: movePosition + "px",
 			});
-			console.log("imgWidth:" + imgWidth, "listWidth:" + listWidth,
-				"movePosition:" + movePosition, "startIndex:" + startIndex);
+
+			return startIndex;
+		});
+
+		// 좌측 버튼 //
+		$(".section-paging-arrow.left").on("click", function() {
+			$(".section-paging-arrow.right").show();
+			--startIndex;
+			imgWidth = parseFloat($(".section01-body-list>li").css("width"));
+			listWidth = imgWidth + imgMargin;
+			movePosition = -(listWidth * startIndex);
+
+			if (startIndex <= -1) {
+				$(".section-paging-arrow.left").hide();
+				++startIndex;
+				return startIndex;
+			}
+
+			$(".section01-body-list").animate({
+				left: movePosition + "px",
+			});
 
 			return startIndex;
 		});
 	}
+
 	initSection("01");
 });
