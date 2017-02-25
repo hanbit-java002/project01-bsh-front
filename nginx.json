@@ -9,6 +9,7 @@
 			"root": "/hanbit/webstormpjt/project01-bsh-front/dist"
 		}
 	],
+
 	"proxys": [
 		{
 			"location": "/api2/",

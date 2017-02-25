@@ -70,13 +70,12 @@ require([
 
 	function imgRollingSlider(sectionCode, items) {
 		items = sectionInfo[sectionCode].items;
-		var imgMargin = 30.3;
+		var imgMargin = 29.9;
 		var listEndIndex = items.length - 1;
 		var imgWidth = 0;
 		var listWidth = 0;
 		var	movePosition = 0;
 		var	startIndex = 0;
-		var lastIndex = startIndex + 2;
 
 		// 리사이즈 될 때, 기준선 정렬 //
 		$(window).on("resize", function() {
@@ -97,9 +96,11 @@ require([
 			listWidth = imgWidth + imgMargin;
 			movePosition = -(listWidth * startIndex);
 
-			if (lastIndex >= listEndIndex) {
+			if (startIndex >= listEndIndex - 2) {
+				$(".section01-body-list").animate({
+					left: (movePosition + 0.1) + "px",
+				});
 				$(".section-paging-arrow.right").hide();
-				--startIndex;
 				return startIndex;
 			}
 
@@ -118,9 +119,11 @@ require([
 			listWidth = imgWidth + imgMargin;
 			movePosition = -(listWidth * startIndex);
 
-			if (startIndex <= -1) {
+			if (startIndex <= 0) {
+				$(".section01-body-list").animate({
+					left: movePosition + "px",
+				});
 				$(".section-paging-arrow.left").hide();
-				++startIndex;
 				return startIndex;
 			}
 
