@@ -84,7 +84,7 @@ require([
 			movePosition = -(listWidth * startIndex);
 
 			$(".section01-body-list").animate({
-				left: movePosition + "px",
+				left: (movePosition - 0.1) + "px",
 			}, 1);
 		});
 
@@ -98,7 +98,7 @@ require([
 
 			if (startIndex >= listEndIndex - 2) {
 				$(".section01-body-list").animate({
-					left: (movePosition + 0.1) + "px",
+					left: (movePosition - 0.1) + "px",
 				});
 				$(".section-paging-arrow.right").hide();
 				return startIndex;
