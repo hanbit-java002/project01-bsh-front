@@ -115,48 +115,102 @@ define([
 		$(".again-password-inputbox").val("");
 	}
 
+	function resetExceptionAlert() {
+		$(".email-signup-layer-body>div").removeClass("exception");
+		$("#email-addr-exception-alert").hide();
+		$("#password-exception-alert").hide();
+		$("#again-password-exception-alert").hide();
+	}
+
+	function resetAgreementExceptionAlert() {
+		$(".single-check-box").removeClass("exception");
+		$("#use-agreement-agree-validation").hide();
+		$("#personal-info-agree-validation").hide();
+		$("#location-info-agree-validation").hide();
+	}
+
 	function signUp() {
 		var userId = $(".email-signup-email-addr-box>.email-addr-inputbox").val();
 		var userPw = $(".email-signup-password-box>.password-inputbox").val();
 		var userPwCfm = $(".email-signup-again-password-box>.again-password-inputbox").val();
+		var emailForm = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+		var passwordForm = /^[0-9a-zA-Z가-힣]{6,20}$/;
+		var attrCheckBox01 = $("#use-agreement-agree i").css("display");
+		var attrCheckBox02 = $("#personal-info-agree i").css("display");
+		var attrCheckBox03 = $("#location-info-agree i").css("display");
 
 		if (userId === undefined || userId === "") {
-			alert("아이디를 입력하세요.");
-			$(".email-addr-inputbox").focus();
-			return;
+			$(".email-signup-email-addr-box").addClass("exception");
+			$("#email-addr-exception-alert").show();
+			document.getElementById("email-addr-exception-alert").innerHTML = "이메일 주소를 입력해주세요.";
+		}
+		else if (!userId.match(emailForm)) {
+			$(".email-signup-email-addr-box").addClass("exception");
+			$("#email-addr-exception-alert").show();
+			document.getElementById("email-addr-exception-alert").innerHTML = "이메일 양식이 맞지 않습니다.";
 		}
 		else if (userPw === undefined || userPw === "") {
-			alert("비밀번호를 입력하세요.");
-			$(".password-inputbox").focus();
-			return;
+			$(".email-signup-password-box").addClass("exception");
+			$("#password-exception-alert").show();
+			document.getElementById("password-exception-alert").innerHTML = "비밀번호를 6자 이상 입력해주세요.";
+		}
+		else if (!userPw.match(passwordForm)) {
+			$(".email-signup-password-box").addClass("exception");
+			$("#password-exception-alert").show();
+			document.getElementById("password-exception-alert").innerHTML = "비밀번호를 6자 이상 20자 이하로 입력해주세요.";
+		}
+		else if (userPwCfm === undefined || userPwCfm === "") {
+			$(".email-signup-again-password-box").addClass("exception");
+			$("#again-password-exception-alert").show();
+			document.getElementById("again-password-exception-alert").innerHTML = "비밀번호 확인을 입력해주세요.";
 		}
 		else if (userPw !== userPwCfm) {
-			alert("비밀번호 확인을 동일하게 입력하세요.");
-			$(".again-password-inputbox").focus();
-			return;
+			$(".email-signup-again-password-box").addClass("exception");
+			$("#again-password-exception-alert").show();
+			document.getElementById("again-password-exception-alert").innerHTML = "비밀번호 확인이 일치하지 않습니다.";
 		}
-
-		$.ajax({
-			url: global.root + "/api2/member/signup",
-			method: "POST",
-			data: {
-				userId: userId,
-				userPw: userPw,
-			},
-			success: function(data) {
-				if(data.result === "ok") {
-					alert(userId + "님 환영합니다.");
-					$("#main-login-layer").hide();
-					resetInputBox();
-				}
-				else {
-					alert("정상적으로 가입되지 않았습니다.");
-				}
-			},
-			error: function(jqXHR) {
-				alert(jqXHR.responseJSON.message);
-			},
-		});
+		else if (attrCheckBox01 !== "block" || attrCheckBox02 !== "block" || attrCheckBox03 !== "block") {
+			if (attrCheckBox01 !== "block") {
+				$("#use-agreement-agree .single-check-box").addClass("exception");
+				$("#use-agreement-agree-validation").show();
+				document.getElementById("use-agreement-agree-validation").innerHTML = "이용약관에 동의해주세요.";
+			}
+			if (attrCheckBox02 !== "block") {
+				$("#personal-info-agree .single-check-box").addClass("exception");
+				$("#personal-info-agree-validation").show();
+				document.getElementById("personal-info-agree-validation").innerHTML = "개인정보 수집 및 이용약관에 동의해주세요.";
+			}
+			if (attrCheckBox03 !== "block") {
+				$("#location-info-agree .single-check-box").addClass("exception");
+				$("#location-info-agree-validation").show();
+				document.getElementById("location-info-agree-validation").innerHTML = "위치기반 서비스 이용약관에 동의해주세요.";
+			}
+		}
+		else {
+			$.ajax({
+				url: global.root + "/api2/member/signup",
+				method: "POST",
+				data: {
+					userId: userId,
+					userPw: userPw,
+				},
+				success: function(data) {
+					if(data.result === "ok") {
+						alert(userId + "님 환영합니다.");
+						$(".all-check-box-active").hide();
+						$("#email-signup-layer").hide();
+						resetInputBox();
+						resetAgreementExceptionAlert();
+					}
+					else {
+						alert("정상적으로 가입되지 않았습니다.");
+					}
+				},
+				error: function(jqXHR) {
+					alert(jqXHR.responseJSON.message);
+				},
+			});
+		}
 	}
 
 	function signIn() {
@@ -203,6 +257,7 @@ define([
 	});
 
 	$(".email-signup-complete-button").on("click", function() {
+		resetExceptionAlert();
 		signUp();
 	});
 
@@ -262,9 +317,9 @@ define([
 			$("#main-login-layer").hide();
 			$(".check-box-active").hide();
 			$(".all-check-box-active").hide();
-			$(".email-addr-inputbox").val("");
-			$(".password-inputbox").val("");
-			$(".again-password-inputbox").val("");
+			resetInputBox();
+			resetExceptionAlert();
+			resetAgreementExceptionAlert();
 		});
 	}
 
@@ -272,9 +327,14 @@ define([
 	function singleCheckBox() {
 		$(".single-check-box").on("click", function() {
 			var select = $(this).parent("div");
+			var selectId = select.find("i").attr("id");
+
 			select.find("i").show();
+			$("#" + selectId + "-agree-validation").hide();
+			$("#" + selectId + "-agree .single-check-box").removeClass("exception");
 		});
 	}
+
 	function singleUnCheckBox() {
 		$(".check-box-active").on("click", function() {
 			$(this).hide();

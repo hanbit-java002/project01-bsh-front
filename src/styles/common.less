@@ -453,6 +453,22 @@
 	cursor: pointer;
 }
 
+.email-signup-email-addr-box.exception,
+.email-signup-password-box.exception,
+.email-signup-again-password-box.exception {
+	border: solid 1px @exception-color;
+}
+
+#email-addr-exception-alert,
+#password-exception-alert,
+#again-password-exception-alert {
+	display: none;
+	margin: 11px 0;
+	padding: 0 7px;
+	font-size: 12px;
+	color: @exception-color;
+}
+
 .button-facebook {
 	background: #3B5998;
 }
@@ -618,14 +634,16 @@
 //-------------email-signup layer------------//
 
 .email-signup-box {
-	position: absolute;
-	top: 20px;
+	position: relative;
+	top: 30px;
+	padding: 1px 0px 20px 0px;
 }
 
 .email-signup-agreement-box {
-	position: absolute;
-	top: 443px;
+	position: relative;
+	top: 0px;
 	background-color: #F7F7F7;
+	padding: 1px 0px;
 }
 
 .email-signup-agreement-title {
@@ -633,20 +651,31 @@
 	font-weight: bold;
 }
 
-.use-agreement-agree,
-.personal-info-agree,
-.location-info-agree,
-.mail-receive-agree {
+#use-agreement-agree,
+#personal-info-agree,
+#location-info-agree,
+#mail-receive-agree {
 	position: relative;
 	margin-bottom: 10px;
 }
 
-.use-agreement-agree {
+#use-agreement-agree {
 	margin-top: -10px;
 }
 
 .mail-receive-agree {
 	margin-bottom: 0px;
+}
+
+#use-agreement-agree-validation,
+#personal-info-agree-validation,
+#location-info-agree-validation {
+	display: none;
+	margin: 11px 0;
+	padding: 0;
+	font-size: 12px;
+	color: @exception-color;
+	text-align: right;
 }
 
 .info-agree-text {
@@ -680,6 +709,10 @@
 	right: -25px;
 }
 
+.single-check-box.exception {
+	border: solid 1px @exception-color;
+}
+
 .agreement-check-text {
 	font-size: 12px;
 	color: #909090;
@@ -694,12 +727,13 @@
 }
 
 .email-signup-submit-box {
-	position: absolute;
-	top: 648px;
+	position: relative;
+	top: 0px;
 }
 
 .email-signup-submit-body {
-	margin: 15px 25px 25px;
+	margin: 0px 25px 0px;
+	padding: 20px 0px;
 }
 
 .agreement-all-check-area {
@@ -721,7 +755,7 @@
 .all-check-box-active {
 	display: none;
 	position: absolute;
-	top: 0px;
+	top: 20px;
 	color: #EC522E;
 	font-size: 14px;
 	width: 16px;
