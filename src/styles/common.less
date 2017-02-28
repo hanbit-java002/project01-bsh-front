@@ -1,4 +1,6 @@
 @import 'lib/include.all.less';
+@import 'lib/dimensions.less';
+@import 'lib/colors.less';
 
 
 #scroll-up-button {
@@ -455,13 +457,19 @@
 
 .email-signup-email-addr-box.exception,
 .email-signup-password-box.exception,
-.email-signup-again-password-box.exception {
+.email-signup-again-password-box.exception,
+.mail-login-email-addr-box.exception,
+.mail-login-email-password-box.exception,
+.find-password-email-addr-box.exception {
 	border: solid 1px @exception-color;
 }
 
-#email-addr-exception-alert,
-#password-exception-alert,
-#again-password-exception-alert {
+#signup-email-addr-exception-alert,
+#signin-email-addr-exception-alert,
+#signin-password-exception-alert,
+#signup-password-exception-alert,
+#signup-again-password-exception-alert,
+#find-password-email-addr-exception-alert {
 	display: none;
 	margin: 11px 0;
 	padding: 0 7px;
@@ -501,12 +509,17 @@
 //-------------email login layer------------//
 
 .mail-login-layer-box {
-	top: 105px;
+	position: relative;
+	top: 60px;
+	padding: 1px 0px;
+	margin-bottom: 60px;
 }
 
 .mail-login-layer-signup-box {
-	top: 462px;
+	position: relative;
+	top: 0px;
 	background-color: #F7F7F7;
+	padding: 1px 0px;
 }
 
 .mail-login-email-addr-box,
@@ -628,6 +641,26 @@
 	text-align: center;
 	width: 49%;
 	display: inline-block;
+}
+
+#complete-send-email-layer {
+	display: none;
+	@abs-hcenter();
+	position: fixed;
+	top: 160px;
+	width: 280px;
+	height: 52px;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 20;
+}
+
+#complete-send-email-text {
+	padding: 10px 0px;
+	color: #FFFFFF;
+	font-size: 12px;
+	letter-spacing: -1.5px;
+	font-family: '돋움',dotum;
+	text-align: center;
 }
 
 

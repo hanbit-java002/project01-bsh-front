@@ -45,9 +45,11 @@
 				<div class="mail-login-email-addr-box">
 					<input class="email-addr-inputbox" type="text" placeholder="이메일 주소">
 				</div>
+				<div id="signin-email-addr-exception-alert"></div>
 				<div class="mail-login-email-password-box">
 					<input class="password-inputbox" type="password" placeholder="비밀번호">
 				</div>
+				<div id="signin-password-exception-alert"></div>
 				<div class="mail-login-remain-check">
 					<div class="remain-check-box-container">
 						<div class="single-check-box"></div>
@@ -95,8 +97,9 @@
 					[회원 정보]-[설정]에서 변경하세요.<br>
 				</div>
 				<div class="find-password-email-addr-box">
-					<input class="email-addr-inputbox" type="password" placeholder="가입한 e-mail 주소">
+					<input class="email-addr-inputbox" type="text" placeholder="가입한 e-mail 주소">
 				</div>
+				<div id="find-password-email-addr-exception-alert"></div>
 				<div class="find-password-layer-button">
 					<div class="cancle-button">
 						취소
@@ -123,15 +126,15 @@
 				<div class="email-signup-email-addr-box">
 					<input class="email-addr-inputbox" type="text" placeholder="이메일 주소">
 				</div>
-				<div id="email-addr-exception-alert"></div>
+				<div id="signup-email-addr-exception-alert"></div>
 				<div class="email-signup-password-box">
 					<input class="password-inputbox" type="password" placeholder="비밀번호를 6자 이상 입력해주세요.">
 				</div>
-				<div id="password-exception-alert"></div>
+				<div id="signup-password-exception-alert"></div>
 				<div class="email-signup-again-password-box">
 					<input class="again-password-inputbox" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요.">
 				</div>
-				<div id="again-password-exception-alert"></div>
+				<div id="signup-again-password-exception-alert"></div>
 				<div class="email-signup-layer-description">
 					입력된 이메일 주소로 인증메일이 발송됩니다.<br>
 					로그인 및 비밀번호 찾기 등에 사용되니 실제 사용중인<br>
@@ -223,5 +226,11 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+<div id="complete-send-email-layer">
+	<div id="complete-send-email-text">
+		임시 비밀번호 메일이 발송되었습니다.<br>
+		메일에 들어가서 확인해주세요
 	</div>
 </div>
