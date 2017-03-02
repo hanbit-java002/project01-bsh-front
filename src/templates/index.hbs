@@ -22,18 +22,50 @@
 <body>
 <div class="sp-container">
 	<button id="scroll-up-button">TOP</button>
-	<header id="main-bar">
+	<header class="main-header">
 		<div class="main-bar-container">
 			<div class="main-bar-body">
-				<div id="main-bar-logo"></div>
-				<ul id="main-bar-menu">
+				<div class="main-header-bar logo"></div>
+				<ul class="main-header-bar menu">
 					<li class="menu-hotple">핫플</li>
 					<li class="menu-theme">테마</li>
 					<li class="menu-order">주문</li>
 				</ul>
-				<button id="main-bar-login-button">
+				<button class="main-header-bar login-button">
 					로그인
 				</button>
+				<div class="after-login-btn-wrap">
+					<div class="after-login-btn">
+						<div class="profile-img">
+							<img src="{{root}}/img/profile_default.png">
+						</div>
+						<div class="main-header-bar" id="user-name">100suhyunqqqqqqqqqqq</div>
+						<span class="main-header-bar"></span>
+					</div>
+					<div class="my-login-layer">
+						<span class="small-triangle"></span>
+						<ul>
+							<li class="my-page-btn">
+								<a href="http://localhost:82/mypage.html" title="마이 페이지로 이동">
+									<div>마이</div>
+								</a>
+							</li>
+							<li class="setting-btn">
+								<a href="http://localhost:82/setting.html" title="설정 페이지로 이동">
+									<div>설정</div>
+								</a>
+							</li>
+							<li class="log-out-btn">
+								로그아웃
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="complete-layer log-out">
+					<div class="complete-layer-text">
+						로그아웃 되었습니다.
+					</div>
+				</div>
 			</div>
 		</div>
 	</header>

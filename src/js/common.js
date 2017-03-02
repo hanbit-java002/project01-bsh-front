@@ -24,7 +24,7 @@ define([
 
 
 	/* ----------------main logo----------------*/
-	$("#main-bar-logo, #header-bar-logo").on("click", function() {
+	$(".logo").on("click", function() {
 		location.href = "/";
 	});
 
@@ -128,7 +128,7 @@ define([
 	}
 
 	function showLoginLayer() {
-		$("#main-bar-login-button, #header-bar-login-button").on("click", function() {
+		$(".login-button").on("click", function() {
 			$("#main-login-layer").show();
 		});
 	}
@@ -138,13 +138,13 @@ define([
 		});
 	}
 
-
 	function showMailLoginLayer() {
 		$(".button-email").on("click", function() {
 			$("#main-login-layer").hide();
 			$("#mail-login-layer").show();
 		});
 	}
+
 	function hideMailLoginLayer() {
 		$(".layer-close-button").on("click", function() {
 			$("#mail-login-layer").hide();
@@ -169,13 +169,13 @@ define([
 		});
 	}
 
-
 	function showSignUpLayer() {
 		$(".mail-login-layer-signup-button").on("click", function() {
 			$("#mail-login-layer").hide();
 			$("#email-signup-layer").show();
 		});
 	}
+
 	function hideSignUpLayer() {
 		$(".layer-close-button").on("click", function() {
 			$("#find-password-layer").hide();
@@ -188,7 +188,6 @@ define([
 			resetAgreementExceptionAlert();
 		});
 	}
-
 
 	function singleCheckBox() {
 		$(".single-check-box").on("click", function() {
@@ -207,13 +206,13 @@ define([
 		});
 	}
 
-
 	function allCheckBox() {
 		$(".all-check-box").on("click", function() {
 			$(".check-box-active").show();
 			$(".all-check-box-active").show();
 		});
 	}
+
 	function allUnCheckBox() {
 		$(".all-check-box-active").on("click", function() {
 			$(".check-box-active").hide();
@@ -227,6 +226,55 @@ define([
 		$("#personal-info-agree-validation").hide();
 		$("#location-info-agree-validation").hide();
 	}
+
+	function showAfterLoginBtn() {
+		$(".login-button").hide();
+		$(".after-login-btn").show();
+	}
+
+	function hideAfterLoginBtn() {
+		$(".after-login-btn").hide();
+		$(".login-button").show();
+	}
+
+	function showMyLoginLayer() {
+		$(".after-login-btn").on("click", function() {
+			$(".my-login-layer").show();
+		});
+	}
+
+	function hideMyLoginLayer() {
+		$(".my-login-layer").hide();
+	}
+
+	function alertConfirmLogOut() {
+		var retVal = confirm("로그아웃 하시겠습니까?");
+		if(retVal == true) {
+			$.ajax({
+				url: global.root + "/api2/member/signout",
+				success: function() {
+					hideMyLoginLayer();
+					hideAfterLoginBtn();
+					$(".complete-layer.log-out").show();
+					setTimeout(hideCompleteLayer, 4000);
+				},
+			});
+		}
+		else{
+			return false;
+		}
+	}
+
+	// 로그아웃 //
+	$(".log-out-btn").on("click", function() {
+		alertConfirmLogOut();
+	});
+
+	$(".sp-container").click(function(e) {
+		if (!$(".after-login-btn, .my-login-layer").has(e.target).length) {
+			hideMyLoginLayer();
+		}
+	});
 
 	// 회원 가입 //
 	function signUp() {
@@ -329,6 +377,23 @@ define([
 		}
 	}
 
+	// 로그인 상태 체크 //
+	function checkSignedIn() {
+		$.ajax({
+			url: global.root + "/api2/member/signedin",
+			success: function(data) {
+				if (data.result === "yes") {
+					$(".login-button").hide();
+					$(".after-login-btn").show();
+				}
+				else {
+					$(".login-button").show();
+					$(".after-login-btn").hide();
+				}
+			},
+		});
+	}
+
 	// 로그인 //
 	function signIn() {
 		var userId = $(".mail-login-email-addr-box>.email-addr-inputbox").val();
@@ -364,7 +429,7 @@ define([
 						$("#mail-login-layer").hide();
 						resetInputBox();
 						resetExceptionAlert();
-						// 나중에 로그인 완료 후, 노출되는 기능은 여기에 추가
+						showAfterLoginBtn();
 					}
 					else {
 						alert("아이디와 비밀번호를 확인해주세요.");
@@ -394,6 +459,11 @@ define([
 		}
 	}
 
+	// complete Layer //
+	function hideCompleteLayer() {
+		$(".complete-layer").fadeOut(1500);
+	}
+
 	// 비밀번호 찾기 //
 	function findPassword() {
 		var userId = $(".find-password-email-addr-box>.email-addr-inputbox").val();
@@ -421,10 +491,8 @@ define([
 						$("#find-password-layer").hide();
 						resetInputBox();
 						resetExceptionAlert();
-						$("#complete-send-email-layer").show();
-						$("#complete-send-email-layer").fadeOut("slow", function() {
-							$("#complete-send-email-layer").hide();
-						});
+						$(".complete-layer.send-mail").show();
+						setTimeout(hideCompleteLayer, 4000);
 					}
 					else {
 						alert("이메일 주소를 확인해주세요.");
@@ -451,9 +519,30 @@ define([
 		signIn();
 	});
 
+	$(".login.email-addr-inputbox, .login.password-inputbox").on("keyup", function(event) {
+		if (event.keyCode === 13) {
+			resetExceptionAlert();
+			signIn();
+		}
+		else if (event.keyCode === 27) {
+			$(this).val("");
+		}
+	});
+
 	$(".email-signup-complete-button").on("click", function() {
 		resetExceptionAlert();
 		signUp();
+	});
+
+	$(".signup.email-addr-inputbox, .signup.password-inputbox, .signup.again-password-inputbox").on("keyup",
+		function(event) {
+		if (event.keyCode === 13) {
+			resetExceptionAlert();
+			signUp();
+		}
+		else if (event.keyCode === 27) {
+			$(this).val("");
+		}
 	});
 
 	$(".find-password-button").on("click", function() {
@@ -462,7 +551,7 @@ define([
 	});
 
 
-	/* ----------------sns share layers----------------*/
+	/* ----------------Local Category Layer----------------*/
 	function showLocalCategoryLayer() {
 		$(".top-menu-bar.local-category-text").on("click", function() {
 			$(".top-menu-bar.local-category-layer").show();
@@ -530,4 +619,6 @@ define([
 	hideSnsShareLayer();
 	shareLink();
 	activeSearchBoxLayerList();
+	showMyLoginLayer();
+	checkSignedIn();
 });

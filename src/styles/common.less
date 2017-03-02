@@ -111,7 +111,7 @@
 
 
 //-------------header-------------//
-#header-bar {
+.header {
 	position: relative;
 	display: inline-block;
 	height: 44px;
@@ -123,24 +123,32 @@
 	z-index: 20;
 }
 
-#header-bar-logo {
+.logo {
 	display: inline-block;
 	width: 140px;
 	height: 36px;
 	@sp-imgs();
-	background-position: 0 -267px;
-	cursor: pointer;
+	background-repeat: no-repeat;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
-#header-bar-menu {
+.header-bar.logo {
+	background-position: 0 -267px;
+}
+
+.header-bar.menu {
 	display: inline-block;
 	margin: 0px;
 	padding: 0px 20px;
 	line-height: 40px;
 }
 
-#header-bar-menu>li {
+.menu>li {
+
+}
+
+.menu>li {
 	display: inline-block;
 	list-style: none;
 	left: 0;
@@ -194,24 +202,143 @@
 }
 
 
-.header.search-box-layer-list-text,
-.header.search-box-layer-list-amount,
-.header.search-box-layer-list-storename {
+.header-bar.search-box-layer-list-text,
+.header-bar.search-box-layer-list-amount,
+.header-bar.search-box-layer-list-storename {
 	font-size: 16px;
 }
 
-#header-bar-login-button {
+.login-button{
 	position: absolute;
 	width: 60px;
 	height: 30px;
-	top: 30.5px;
 	right: 55px;
 	background-color: transparent;
 	font-size: 12px;
-	border: solid 1px #000;
 	border-radius: 2px;
 	outline: 0px;
 	cursor: pointer;
+}
+
+.header-bar.login-button {
+	top: 30.5px;
+	border: solid 1px #000;
+}
+
+.after-login-btn-wrap {
+	top: 30.5px;
+	right: 55px;
+}
+
+.after-login-btn {
+	display: none;
+	position: absolute;
+	top: 30.5px;
+	right: 55px;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.after-login-btn>div,
+.after-login-btn>span {
+	display: inline-block;
+	list-style: none;
+}
+
+.profile-img>img {
+	width: 36px;
+	height: 36px;
+	border-radius: 17px;
+	vertical-align: middle;
+}
+
+#user-name {
+	margin: 0px 3px;
+	width: 65px;
+	font-size: 12px;
+	vertical-align: middle;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.main-header-bar#user-name {
+	color: #fff;
+}
+
+.header-bar#user-name {
+	color: #000;
+}
+
+.after-login-btn>span {
+	width: 6px;
+	height: 4px;
+	@sp-imgs();
+	vertical-align: middle;
+}
+
+.after-login-btn>span.header-bar {
+	background-position: -339px -32px;
+}
+
+.after-login-btn>span.main-header-bar {
+	background-position: -323px -32px;
+}
+
+.my-login-layer {
+	display: none;
+	position: absolute;
+	top: 65.5px;
+	right: 55px;
+	width: 102px;
+	padding-top: 6px;
+	cursor: pointer;
+}
+
+.small-triangle {
+	@sp-imgs();
+	@abs-hcenter();
+	top: 0;
+	width: 12px;
+	height: 8px;
+	background-position: -364px -80px;
+}
+
+.my-login-layer>ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border: 1px solid rgba(0,0,0,.1);
+	border-radius: 2px;
+	background: #f4f4f4;
+}
+
+.my-login-layer>ul>li {
+	width: 100%;
+	font-size: 12px;
+	color: #323232;
+	text-align: center;
+	list-style: none;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.my-login-layer>ul>li>a {
+	width: 100%;
+	color: #323232;
+	text-decoration: none;
+}
+
+.my-login-layer>ul>li>a>div {
+	padding: 8px 0px;
+}
+
+.my-login-layer>ul>li:last-child {
+	padding: 8px 0px;
+	border-bottom: none;
+}
+
+.my-login-layer>ul>li:hover {
+	background-color: #fce9e4;
 }
 
 
@@ -643,24 +770,25 @@
 	display: inline-block;
 }
 
-#complete-send-email-layer {
+.complete-layer.send-mail,
+.complete-layer.log-out {
 	display: none;
 	@abs-hcenter();
 	position: fixed;
-	top: 160px;
+	top: 190px;
 	width: 280px;
-	height: 52px;
 	background-color: rgba(0, 0, 0, 0.7);
 	z-index: 20;
 }
 
-#complete-send-email-text {
+.complete-layer-text {
 	padding: 10px 0px;
 	color: #FFFFFF;
 	font-size: 12px;
 	letter-spacing: -1.5px;
 	font-family: '돋움',dotum;
 	text-align: center;
+	vertical-align: middle;
 }
 
 

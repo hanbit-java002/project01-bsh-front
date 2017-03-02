@@ -1,7 +1,7 @@
 @import 'common.less';
 
 
-#main-bar {
+.main-header {
 	position: absolute;
 	display: inline-block;
 	height: 44px;
@@ -13,44 +13,19 @@
 	z-index: 20;
 }
 
-#main-bar-logo {
-	display: inline-block;
-	width: 140px;
-	height: 39px;
+.main-header-bar.logo {
 	left: 0;
-	background-image: url(../img/main-logo-white.png);
-	background-repeat: no-repeat;
-	vertical-align: middle;
-	cursor: pointer;
+	background-position: 0 -305px;
 	outline: none;
 }
 
-#main-bar-menu {
+.main-header-bar.menu {
 	display: inline-block;
 }
 
-#main-bar-menu>li {
-	display: inline-block;
-	list-style: none;
-	left: 0;
-	padding: 0 9px;
-	font-size: 18px;
-	vertical-align: middle;
-	cursor: pointer;
-}
-
-#main-bar-login-button {
-	position: absolute;
-	width: 60px;
-	height: 30px;
+.main-header-bar.login-button {
 	top: 41px;
-	right: 55px;
-	background-color: transparent;
-	font-size: 12px;
 	border: solid 1px #ffffff;
-	border-radius: 2px;
-	outline: 0px;
-	cursor: pointer;
 }
 
 #main-top {
