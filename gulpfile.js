@@ -243,12 +243,24 @@ gulp.task('html:static', function() {
 gulp.task('html:dynamic', function() {
     var options = {
         batch: [dirs.src + '/templates/partials'],
-		helper: {
+		helpers: {
 			set: function(options) {
 				for (var key in options.hash) {
 					this[key] = options.hash[key];
 				}
-			}
+			},
+			eq: function(type1, type2) {
+				return type1 === type2;
+			},
+			getObj: function(key) {
+				return this[key];
+			},
+			getMenuInfo: function(pageId, num, key) {
+				if (key === "titleImg") {
+					return this[pageId][num].subTitle[key];
+				}
+				return this[pageId][num].subTitle[key];
+			},
 		}
     };
 
