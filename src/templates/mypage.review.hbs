@@ -1,0 +1,66 @@
+{{set root=".."}}
+{{set pageId="mypage"}}
+{{> header title='마이 - 리뷰 : 얍플레이스(YAP Place)' cssName='mypage.review'}}
+
+<div id="mypage-contents">
+	<div class="profile-cover">
+		<div class="mypage-container">
+			<div class="body">
+				<div class="my-profile">
+					<div class="user-img"></div>
+					<div class="user-info">
+						<div class="user-name">
+							100suhyunqqqqqqqqq
+						</div>
+						<div class="user-sns">
+							<div class="following">
+								팔로잉 0
+							</div>
+							<div class="follower">
+								팔로워 0
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mypage-body mypage-container">
+		<div class="body">
+			<ul class="mypage-menu">
+				{{#each (getObj pageId)}}
+					<li class="{{class}}">
+						{{title}}
+						<span>
+							{{count}}
+						</span>
+					</li>
+				{{/each}}
+			</ul>
+			<div class="content-box">
+				<div class="content-body">
+					<div class="mypage-default-text">
+						아직 작성한 리뷰가 없습니다.
+					</div>
+					<ul class="my-list">
+						<li class="my-review">
+							<div class="review-date">
+								<span>4</span>
+								일전
+							</div>
+							<div class=""></div>
+							<div class=""></div>
+							<div class=""></div>
+							<div class=""></div>
+							<div class=""></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+{{> footer jsName='mypage.common'}}

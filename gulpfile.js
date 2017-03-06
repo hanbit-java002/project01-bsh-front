@@ -254,13 +254,7 @@ gulp.task('html:dynamic', function() {
 			},
 			getObj: function(key) {
 				return this[key];
-			},
-			getMenuInfo: function(pageId, num, key) {
-				if (key === "titleImg") {
-					return this[pageId][num].subTitle[key];
-				}
-				return this[pageId][num].subTitle[key];
-			},
+			}
 		}
     };
 

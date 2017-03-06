@@ -1,6 +1,6 @@
 {{set root=".."}}
 {{set pageId="mypage"}}
-{{> header title='마이 - 리뷰 : 얍플레이스(YAP Place)' cssName='mypage'}}
+{{> header title='마이 - 주문 : 얍플레이스(YAP Place)' cssName='mypage.order'}}
 
 <div id="mypage-contents">
 	<div class="profile-cover">
@@ -39,9 +39,22 @@
 			</ul>
 			<div class="content-box">
 				<div class="mypage-filter">
-					<div class="mypage-category"></div>
+					<ul class="mypage-category">
+						<li class="my-order-history">주문 내역</li>
+						<li class="my-order-review">상품 후기</li>
+						<li class="my-order-inquiry active">상품 문의</li>
+					</ul>
 				</div>
-				<div class="content-body"></div>
+				<div class="content-body">
+					<div class="mypage-default-text">
+						주문 가능한 상품에 대한<br>
+						궁금하신 점은 자유롭게 문의해주세요.
+					</div>
+					<div class="my-list">
+
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -49,4 +62,4 @@
 
 
 
-{{> footer jsName='mypage'}}
+{{> footer jsName='mypage.common'}}

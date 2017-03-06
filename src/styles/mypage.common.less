@@ -98,3 +98,36 @@
 	min-height: 300px;
 	border-left: 1px solid #d2d2d2;
 }
+
+.mypage-category {
+	margin-bottom: 16px;
+	text-align: right;
+}
+
+.mypage-category>li {
+	display: inline-block;
+	padding: 0 14px;
+	font-size: 12px;
+	font-family: '돋움', dotum;
+	color: #747474;
+	border-right: solid 1px #747474;
+	line-height: 10px;
+	list-style: none;
+	cursor: pointer;
+}
+
+.mypage-category>li:last-child {
+	border-right: none;
+}
+
+.mypage-category>li.active {
+	font-weight: bold;
+	color: @main-color;
+}
+
+.mypage-default-text {
+	color: #000000;
+	font-size: 18px;
+	padding-top: 84px;
+	text-align: center;
+}
