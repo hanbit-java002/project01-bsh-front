@@ -1,0 +1,37 @@
+{{set root="../.."}}
+<div class="profile-cover">
+	<div class="mypage-container">
+		<div class="body">
+			<div class="my-profile">
+				<div class="user-img"></div>
+				<div class="user-info">
+					<div class="user-name">
+						100suhyunqqqqqqqqq
+					</div>
+					<div class="user-sns">
+						<div class="following">
+							팔로잉 0
+						</div>
+						<div class="follower">
+							팔로워 0
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="mypage-body mypage-container">
+	<div class="body">
+		<nav class="mypage-menu">
+			<ul>
+				{{#each (getObj pageId)}}
+					<li menu="{{menu}}">
+						{{title}}
+						<span>
+							{{count}}
+						</span>
+					</li>
+				{{/each}}
+			</ul>
+		</nav>
