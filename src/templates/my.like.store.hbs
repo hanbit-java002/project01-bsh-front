@@ -1,0 +1,47 @@
+{{set root=".."}}
+{{set pageId="mypage"}}
+{{> header title='마이 - 좋아요 : 얍플레이스(YAP Place)' cssName='my.like'}}
+
+			{{> my.common}}
+
+			<div class="mypage-contents">
+				<div class="mypage-filter">
+					<ul class="mypage-category">
+						<li class="my-like-store active">매장</li>
+						<li class="my-like-theme">테마</li>
+						<li class="my-like-products">상품</li>
+					</ul>
+				</div>
+				<div class="content-body">
+					<div class="mypage-default-text">
+						마음에 드는 매장을 좋아요 해보세요.
+					</div>
+					<ul class="my-list">
+						<li>
+							<a href="#" title="연대포 + 상세페이지로 이동">
+								<img class="store-img" src="{{root}}/img/마녀주방-main-img01.jpg">
+								<div class="my-store-info">
+									<div class="store-name">
+										중화원
+									</div>
+									<div class="food-type">
+										중식
+									</div>
+									<div class="price-range">
+										2인기준 2~5만원
+									</div>
+									<button class="heart"></button>
+									<div class="my-store-score">
+										6.1
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+
+{{> footer jsName='my.common'}}

@@ -15,17 +15,17 @@
       "mypage": [
         {
           "id": "my-review",
-          "class": "mypage-review",
+          "class": "my-review",
           "title": "리뷰",
           "count": "0"
         }, {
           "id": "my-like",
-          "class": "mypage-like",
+          "class": "my-like",
           "title": "좋아요",
           "count": "2"
         }, {
           "id": "my-order",
-          "class": "mypage-order",
+          "class": "my-order",
           "title": "주문",
           "count": "0"
         }

@@ -14,48 +14,48 @@ require([
 		$(".mypage-menu>li").removeClass("active");
 		if (link.match("review")) {
 			if (link.match("order")) {
-				$(".mypage-order").addClass("active");
+				$(".my-order").addClass("active");
 				return;
 			}
-			$(".mypage-review").addClass("active");
+			$(".my-review").addClass("active");
 		}
 		else if (link.match("like")) {
-			$(".mypage-like").addClass("active");
+			$(".my-like").addClass("active");
 		}
 		else if (link.match("order")) {
-			$(".mypage-order").addClass("active");
+			$(".my-order").addClass("active");
 		}
 	}
 
 	// 마이페이지 좌측 메뉴 Click 시 페이지 이동//
-	$(".mypage-review").on("click", function() {
-		location.href = global.root + "/mypage.review.html";
+	$(".my-review").on("click", function() {
+		location.href = global.root + "/my.review.html";
 	});
-	$(".mypage-like").on("click", function() {
-		location.href = global.root + "/mypage.like.store.html";
+	$(".my-like").on("click", function() {
+		location.href = global.root + "/my.like.store.html";
 	});
-	$(".mypage-order").on("click", function() {
-		location.href = global.root + "/mypage.order.history.html";
+	$(".my-order").on("click", function() {
+		location.href = global.root + "/my.order.history.html";
 	});
 
 	// 카테고리 Click 시 페이지 이동 //
 	$(".my-like-store").on("click", function() {
-		location.href = global.root + "/mypage.like.store.html";
+		location.href = global.root + "/my.like.store.html";
 	});
 	$(".my-like-theme").on("click", function() {
-		location.href = global.root + "/mypage.like.theme.html";
+		location.href = global.root + "/my.like.theme.html";
 	});
 	$(".my-like-products").on("click", function() {
-		location.href = global.root + "/mypage.like.products.html";
+		location.href = global.root + "/my.like.products.html";
 	});
 	$(".my-order-history").on("click", function() {
-		location.href = global.root + "/mypage.order.history.html";
+		location.href = global.root + "/my.order.history.html";
 	});
 	$(".my-order-review").on("click", function() {
-		location.href = global.root + "/mypage.order.review.html";
+		location.href = global.root + "/my.order.review.html";
 	});
 	$(".my-order-inquiry").on("click", function() {
-		location.href = global.root + "/mypage.order.inquiry.html";
+		location.href = global.root + "/my.order.inquiry.html";
 	});
 
 	activeMyPageMenu();

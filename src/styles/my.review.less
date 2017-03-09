@@ -1,0 +1,224 @@
+@import 'my.common.less';
+
+.mypage-default-text {
+	display: none;
+}
+
+.my-review-list {
+	position: relative;
+}
+
+.my-review-date {
+	display: inline-block;
+	font-size: 20px;
+	line-height: 38px;
+}
+
+.my-review-date>span {
+	color: @main-color;
+	font-size: 44px;
+	font-family: rbt;
+	font-weight: normal;
+}
+
+.my-review-modify {
+	display: inline-block;
+	float: right;
+	width: 4px;
+	height: 18px;
+	@sp-imgs();
+	background-position: -226px -281px;
+	cursor: pointer;
+}
+
+.modify-layer {
+	position: absolute;
+	top: 29px;
+	right: -12px;
+	padding-top: 7px;
+	width: 110px;
+	color: #fff;
+	text-align: center;
+	z-index: 5;
+}
+
+.modify-layer:after {
+	position: absolute;
+	top: 0px;
+	right: 8px;
+	width: 12px;
+	height: 7px;
+	@sp-imgs();
+	background-position: -188px -51px;
+	content: '';
+}
+
+.modify-layer>li {
+	height: 42px;
+	font-size: 16px;
+	line-height: 44px;
+	background: rgba(0,0,0,.8);
+	border-top: 1px solid #e8e8e8;
+}
+
+.modify-layer>li:first-child {
+	border-top: 0px;
+}
+
+.my-review-text {
+	overflow: hidden;
+	margin: 11px 0 13px;
+	color: #323232;
+	font-size: 18px;
+	line-height: 28px;
+	white-space: pre-line;
+}
+
+.my-review-point {
+	width: 80px;
+	height: 16px;
+	@sp-imgs();
+	background-position: -226px -95px;
+}
+
+.my-review-point>div {
+	width: 90%;
+	height: 16px;
+	@sp-imgs();
+	background-position: -226px -113px;
+}
+
+.my-review-img {
+	margin-top: 20px;
+	text-align: left;
+}
+
+.my-review-img>li {
+	display: inline-block;
+	margin-top: 0;
+	padding: 0 10px 0 0;
+	width: 20%;
+	cursor: pointer;
+}
+
+.my-review-img>li>img {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+
+.my-review-emphz-area {
+	margin-top: 28px;
+	text-align: right;
+}
+
+.my-review-emphz {
+	width: 78px;
+	height: 36px;
+	padding: 0px 16px 0 13px;
+	line-height: 36px;
+	border: 1px solid #999;
+	border-radius: 18px;
+	font-size: 16px;
+	color: #999;
+	background-color: transparent;
+	outline: none;
+}
+
+.my-review-emphz>span {
+	margin: 0 20px 0 4px;
+	color: #000;
+}
+
+.my-review-comment {
+	display: inline-block;
+	margin: 30px 0;
+	padding: 20px 10px;
+	width: calc(~"100% - " 4 + @submit-btn-width + @submit-btn-margin);
+	height: 19px;
+	min-height: 17px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	outline: none;
+}
+
+@submit-btn-width: 65px;
+@submit-btn-margin: 10px;
+
+.my-review-submit-btn {
+	display: inline-block;
+	margin-left: @submit-btn-margin;
+	width: @submit-btn-width;
+	height: 42px;
+	border: 0;
+	border-radius: 2px;
+	background: #000;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+	outline: none;
+}
+
+.my-review-store {
+	margin-top: 58px;
+	padding: 15px 0;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	cursor: pointer;
+}
+
+.my-review-store>a {
+	display: block;
+	color: #000;
+	text-decoration: none;
+}
+
+.store-img {
+	display: inline-block;
+	margin-right: 29px;
+	width: 100px;
+	height: 100px;
+}
+
+.my-store-info {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.store-name {
+	font-size: 20px;
+	@over-flow-ellipsis();
+}
+
+.store-description {
+	margin-top: 7px;
+	font-size: 16px;
+	@over-flow-ellipsis();
+}
+
+.store-location {
+	margin-top: 7px;
+	color: #999;
+	font-size: 16px;
+	@over-flow-ellipsis();
+}
+
+.store-location:before {
+	display: inline-block;
+	width: 14px;
+	height: 18px;
+	margin: -2px 3px 2px 0;
+	@sp-imgs();
+	background-position: -172px -38px;
+	vertical-align: middle;
+	content: '';
+}
+
+.my-store-score {
+	float: right;
+	padding-top: 38px;
+	color: @main-color;
+	font-size: 54px;
+	font-family: rbt;
+	font-weight: normal;
+}
